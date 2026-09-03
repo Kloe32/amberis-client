@@ -12,6 +12,7 @@ interface ApiResponse<T> {
  * Fetch all products
  */
 export const getProducts = async (): Promise<Product[]> => {
+
   const response = await axiosInstance.get<ApiResponse<Product[]>>(API_ROUTES.product);
   return response.data.data;
 };
