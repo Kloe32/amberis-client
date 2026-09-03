@@ -1,0 +1,316 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-heading: "Playfair Display", Georgia, "Times New Roman", Baskerville, serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+:root {
+  /* Aesop & Editorial Luxury Palette */
+  --aesop-cream: #faf7f2;
+  --aesop-beige: #f3ede2;
+  --aesop-sand: #e9e1d4;
+  --aesop-dark: #22201d;
+  --aesop-gray: #6e6a64;
+  --aesop-border: #ded7cc;
+  --aesop-accent: #191816;
+  --aesop-ochre: #b88a44;
+  --aesop-ochre-dark: #986e30;
+  --aesop-terracotta: #a8523a;
+  --aesop-forest: #285430;
+
+  --amber-red: #8a241b;
+  --deep-merlot: #521513;
+  --clay-red: #b85038;
+  --warm-beige: var(--aesop-beige);
+  --cream: var(--aesop-cream);
+  --soft-sand: var(--aesop-sand);
+  --champagne: var(--aesop-ochre);
+  --soft-gold: #d4a964;
+  --cocoa: var(--aesop-dark);
+  --taupe: var(--aesop-gray);
+
+  --text: #2c2925;
+  --text-h: #1e1c19;
+  --bg: var(--aesop-cream);
+  --surface: #ffffff;
+  --surface-muted: var(--aesop-beige);
+  --surface-strong: #ebe4d8;
+  --border: var(--aesop-border);
+  --border-metal: rgba(34, 32, 29, 0.12);
+  --code-bg: rgba(34, 32, 29, 0.05);
+  --accent: #1e1c19;
+  --accent-strong: #1e1c19;
+  --accent-warm: #423e39;
+  --accent-metal: #7a756e;
+  --accent-bg: rgba(34, 32, 29, 0.035);
+  --accent-border: rgba(34, 32, 29, 0.18);
+  --social-bg: rgba(250, 247, 242, 0.95);
+  
+  --shadow-subtle: 0 4px 20px -2px rgba(34, 32, 29, 0.04), 0 2px 6px -1px rgba(34, 32, 29, 0.02);
+  --shadow-card: 0 12px 32px -4px rgba(34, 32, 29, 0.06), 0 4px 12px -2px rgba(34, 32, 29, 0.03);
+  --shadow-elevated: 0 24px 48px -12px rgba(34, 32, 29, 0.1), 0 8px 24px -4px rgba(34, 32, 29, 0.04);
+
+  --sans: var(--font-sans);
+  --heading: var(--font-heading);
+  --mono: var(--font-mono);
+
+  font: 16px/150% var(--sans);
+  letter-spacing: -0.01em;
+  color-scheme: light;
+  color: var(--text);
+  background-color: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  width: 100%;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+main {
+  min-height: calc(100svh - 120px);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+p {
+  margin: 0;
+}
+
+::selection {
+  background: rgba(184, 138, 68, 0.22);
+  color: var(--text-h);
+}
+
+/* ==========================================================================
+   BUTTON SYSTEM (Guaranteed high contrast in both default & hover states)
+   ========================================================================== */
+
+/* 1. Primary Solid Dark Button */
+.btn-primary,
+button.btn-primary,
+a.btn-primary {
+  background-color: #22201d !important;
+  color: #ffffff !important;
+  border: 1.5px solid #22201d !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
+  font-weight: 600 !important;
+}
+
+.btn-primary *,
+.btn-primary span,
+button.btn-primary *,
+a.btn-primary * {
+  color: #ffffff !important;
+}
+
+.btn-primary:hover,
+button.btn-primary:hover,
+a.btn-primary:hover {
+  background-color: #b88a44 !important;
+  border-color: #b88a44 !important;
+  color: #ffffff !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 6px 20px -4px rgba(184, 138, 68, 0.4) !important;
+}
+
+.btn-primary:hover *,
+.btn-primary:hover span {
+  color: #ffffff !important;
+}
+
+/* 2. Secondary Outline / Invert Button */
+.btn-secondary,
+button.btn-secondary,
+a.btn-secondary {
+  background-color: #ffffff !important;
+  color: #22201d !important;
+  border: 1.5px solid #22201d !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
+  font-weight: 600 !important;
+}
+
+.btn-secondary *,
+.btn-secondary span,
+button.btn-secondary *,
+a.btn-secondary * {
+  color: #22201d !important;
+}
+
+.btn-secondary:hover,
+button.btn-secondary:hover,
+a.btn-secondary:hover {
+  background-color: #22201d !important;
+  border-color: #22201d !important;
+  color: #ffffff !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 6px 20px -4px rgba(34, 32, 29, 0.25) !important;
+}
+
+.btn-secondary:hover *,
+.btn-secondary:hover span {
+  color: #ffffff !important;
+}
+
+/* 3. Product Card "Add to Bag" Button */
+.btn-action-add,
+button.btn-action-add {
+  background-color: #22201d !important;
+  color: #ffffff !important;
+  border: 1px solid #22201d !important;
+  transition: all 0.2s ease !important;
+  cursor: pointer !important;
+  font-weight: 600 !important;
+}
+
+.btn-action-add *,
+.btn-action-add span {
+  color: #ffffff !important;
+}
+
+.btn-action-add:hover,
+button.btn-action-add:hover {
+  background-color: #b88a44 !important;
+  border-color: #b88a44 !important;
+  color: #ffffff !important;
+  transform: translateY(-1px) !important;
+}
+
+.btn-action-add:hover *,
+.btn-action-add:hover span {
+  color: #ffffff !important;
+}
+
+/* 4. Added State */
+.btn-action-added,
+button.btn-action-added {
+  background-color: #285430 !important;
+  color: #ffffff !important;
+  border: 1px solid #285430 !important;
+  font-weight: 600 !important;
+}
+
+.btn-action-added *,
+.btn-action-added span {
+  color: #ffffff !important;
+}
+
+/* Scrollbar Customization */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d4ccbf;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #b5ac9d;
+}
+
+.scrollbar-none {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+/* Animations */
+@keyframes amberisReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes amberisFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes amberisPulseGlow {
+  0%, 100% {
+    opacity: 0.9;
+  }
+  50% {
+    opacity: 1;
+    filter: drop-shadow(0 16px 30px rgba(184, 138, 68, 0.15));
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 28s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Focus styles */
+.focus-luxury {
+  outline: none;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.focus-luxury:focus-visible {
+  outline: 2px solid var(--aesop-dark);
+  outline-offset: 2px;
+}
