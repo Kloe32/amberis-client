@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { products, productPrice, productPriceValue } from '../data/products'
 import { useApp } from '../contexts/AppContext'
+import heroProductImg from '../assets/Hero Product.jpeg'
 
 const standards = [
   { title: 'Pure Botanical Formulations', desc: 'Synthesised with therapeutic plants and scientifically validated actives.' },
@@ -95,7 +96,7 @@ function Home() {
           <div className="lg:col-span-5 flex justify-center items-center relative">
             <div className="relative w-full max-w-md aspect-[4/5] bg-[var(--surface-strong)] flex items-center justify-center p-8 border border-[var(--border)] shadow-[var(--shadow-elevated)] group">
               <img
-                src="/src/assets/Hero Product.jpeg"
+                src={heroProductImg}
                 alt="Amberis Botanical Formulation"
                 className="max-h-[85%] w-auto object-contain mix-blend-multiply transition-transform duration-700 ease-out group-hover:scale-105"
               />
