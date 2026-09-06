@@ -90,6 +90,8 @@ function AppContent() {
   const Page =
     window.location.pathname.startsWith('/products/')
       ? ProductDetail
+      : window.location.pathname.startsWith('/blog')
+      ? Blog
       : routes[window.location.pathname] ?? NotFound
 
   return (
