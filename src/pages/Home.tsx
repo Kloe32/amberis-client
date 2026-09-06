@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { products, productPrice, productPriceValue } from '../data/products'
+import { journalArticles } from '../data/journalArticles'
 import { useApp } from '../contexts/AppContext'
 import heroProductImg from '../assets/Hero Product.jpeg'
 
@@ -265,10 +266,10 @@ function Home() {
             </p>
             <div>
               <a
-                href="/blog"
+                href="/blog?article=cold-pressed-plant-lipid-extractions"
                 className="inline-flex items-center justify-center px-8 py-4 bg-[#ffffff] !text-[#22201d] text-xs uppercase tracking-[0.18em] font-semibold hover:bg-[var(--aesop-ochre)] hover:!text-[#ffffff] transition-all cursor-pointer shadow-md"
               >
-                <span>Learn Our Extraction Process</span>
+                <span>Read Extraction Essay &rarr;</span>
               </a>
             </div>
           </div>
@@ -282,6 +283,62 @@ function Home() {
                 — Amberis Botanical Laboratory, 2026
               </cite>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* The Journal Spotlight Section */}
+      <section className="py-20 lg:py-28 border-b border-[var(--border)] bg-[var(--surface-muted)]">
+        <div className="mx-auto max-w-7xl px-[clamp(20px,5vw,72px)]">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+            <div>
+              <p className="text-[0.68rem] uppercase tracking-[0.24em] font-semibold text-[var(--aesop-ochre)] mb-2">
+                The Amberis Journal
+              </p>
+              <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-normal text-[var(--text-h)]">
+                Stories on botany, spaces, and rituals.
+              </h2>
+            </div>
+            <a
+              href="/blog"
+              className="text-xs uppercase tracking-[0.18em] font-semibold text-[var(--text-h)] hover:text-[var(--aesop-ochre)] underline underline-offset-8 transition-colors"
+            >
+              Explore Compendium VIII &rarr;
+            </a>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {journalArticles.slice(0, 3).map((article) => (
+              <a
+                key={article.id}
+                href={`/blog?article=${article.slug}`}
+                className="bg-[var(--surface)] border border-[var(--border)] p-8 flex flex-col justify-between group transition-all duration-300 hover:shadow-[var(--shadow-card)] no-underline"
+              >
+                <div>
+                  <div className="flex items-center justify-between text-xs text-[var(--taupe)] mb-4">
+                    <span className="text-[0.65rem] uppercase tracking-[0.18em] font-semibold text-[var(--aesop-ochre)]">
+                      {article.category}
+                    </span>
+                    <span>{article.readTime}</span>
+                  </div>
+
+                  <h3 className="font-heading text-xl font-normal text-[var(--text-h)] group-hover:text-[var(--aesop-ochre)] transition-colors leading-snug mb-3">
+                    {article.title}
+                  </h3>
+
+                  <p className="text-xs text-[var(--taupe)] line-clamp-3 leading-[1.75] font-light my-3">
+                    {article.excerpt}
+                  </p>
+                </div>
+
+                <div className="pt-4 border-t border-[var(--border)] flex items-center justify-between text-xs text-[var(--taupe)] mt-4">
+                  <span className="text-[0.68rem]">{article.author.name}</span>
+                  <span className="font-semibold text-[var(--text-h)] group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
+                    Read Essay &rarr;
+                  </span>
+                </div>
+              </a>
+            ))}
           </div>
         </div>
       </section>
